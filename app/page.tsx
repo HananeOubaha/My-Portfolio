@@ -81,7 +81,7 @@ function HomeContent() {
         <p className="text-muted-foreground text-sm">
           {t.footer.madeWith} <span className="text-[var(--rose-quartz)]">&#10084;</span> in Morocco
         </p>
-        <p className="text-muted-foreground/50 text-xs mt-2">© 2025 Hanane Oubaha. {t.footer.rights}</p>
+        <p className="text-muted-foreground/50 text-xs mt-2">© 2025 Hanane Oubaha</p>
       </footer>
     </main>
   )

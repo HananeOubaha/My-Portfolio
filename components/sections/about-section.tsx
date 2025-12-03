@@ -5,6 +5,7 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Sparkles, Zap, Globe, Heart, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import Image from "next/image"
 
 export function AboutSection() {
   const ref = useRef(null)
@@ -22,7 +23,7 @@ export function AboutSection() {
     <section id="about" ref={ref} className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Planet visual */}
+          {/* Left side - Planet visual with profile photo */}
           <motion.div
             className="relative flex justify-center"
             initial={{ opacity: 0, x: -50 }}
@@ -30,30 +31,25 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-              {/* Glowing planet */}
+              {/* Glowing ring around photo */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--lilac)] via-[var(--rose-quartz)] to-[var(--gold)] opacity-20"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--lilac)] via-[var(--rose-quartz)] to-[var(--gold)] opacity-30"
                 animate={{
                   scale: [1, 1.05, 1],
-                  opacity: [0.2, 0.3, 0.2],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
               />
 
-              {/* Inner planet */}
               <div className="absolute inset-4 rounded-full glass overflow-hidden flex items-center justify-center">
-                <div className="text-center p-6">
-                  <motion.div
-                    className="text-6xl mb-2"
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                  >
-                    <span role="img" aria-label="moon">
-                      &#127769;
-                    </span>
-                  </motion.div>
-                  <p className="text-[var(--gold)] font-display text-lg">Morocco</p>
-                </div>
+                <Image
+                  src="/images/hanane.png"
+                  alt="Hanane Oubaha"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
 
               {/* Orbiting elements */}
@@ -93,12 +89,7 @@ export function AboutSection() {
               {t.about.section}
             </motion.span>
 
-            <h2 className="text-4xl md:text-5xl font-display text-gradient mt-2 mb-6">
-              {t.about.greeting}{" "}
-              <span role="img" aria-label="moon">
-                &#127769;
-              </span>
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-display text-gradient mt-2 mb-6">{t.about.greeting}</h2>
 
             <div className="space-y-4 text-foreground/80 text-lg leading-relaxed">
               <p>
